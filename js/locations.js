@@ -29,7 +29,6 @@ function gotomap(x, y, name, content) {
 
     marker.addListener('click', function () {
         infowindow.open(map, marker);
-
     });
 
     infowindow = new google.maps.InfoWindow({
@@ -38,8 +37,6 @@ function gotomap(x, y, name, content) {
 
     infowindow.open(map, marker);
 }
-
-
 
 $(window).resize(function () {
     var h = $(window).height();
