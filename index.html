@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Map</title>
+    <title>is eat good?</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
@@ -45,7 +45,25 @@
     </style>
 
     <script type="text/javascript">
-
+        var klimataria = '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<h1 id="firstHeading" class="firstHeading">Κλιματαριά</h1>' +
+        '<div id="bodyContent">' +
+        '<p><b>Κλιματαριά</b>, μια παραδοσιακή ταβέρνα στο κέντρο της Αθήνας.</p>' +
+        '</div>' +
+        '</div>';
+        
+        var papagiannis = '<div id="content">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<h1 id="firstHeading" class="firstHeading">Ταβέρνα-Εστιατόριο Παπαγιάννης</h1>' +
+        '<div id="bodyContent">' +
+        '<p><b>Παπαγιάννης</b>, 20 χρόνια στο Ζωγράφου παρέχουμε μια σταθερή ποιότητα' +
+        'και απολαυστικά παραδοσιακά πιάτα.</p>' +
+        '</div>' +
+        '</div>';
+        
         $(document).ready(function () {
             $("#hidden-div").hide();
 
@@ -60,10 +78,7 @@
     </script>
 </head>
 <body>
-
     <div class="container-fluid">
-
-
         <div class="row">
             <nav class="nopadding navbar navbar-default">
                 <div class="container-fluid">
@@ -90,16 +105,9 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
-
-
         <div class="row">
-
-            <!--Left side-->
-
-
+            <!--sidebar-left-->
             <div class="col-md-5">
-
-
                 <div id="hidden-div" style="margin-top:10px;" class="panel panel-default">
 
                     <div class="panel-body">
@@ -120,31 +128,42 @@
 
                         </div>
                     </div>
-
                 </div>
-
-
                 <div style="margin-top:10px;" class="panel panel-default">
-
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-9">
-                                <a href="#" id="gotomap">Αχινός</a><br />59th St to 110th St (5th Ave to Central Park West)
-
-                                <br />
-                                Kostas B. • September 13
-                                This place has some great art works! :-) And the best thing is that its open and free to public!
-
+                            <div class="col-sm-1">
+                                <span class="label label-success">15</span>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><a href="#" onclick="gotomap(37.98, 23.72, 'Ταβέρνα Κληματαριά', klimataria);">Ταβέρνα Κληματαριά<br><small>Pl. Theatrou 2, Athina 105 52</small></a></h4>
+                                
+                                <h5>Francesco Alberti <small>6 months ago</small></h5>
+                                Tipica taverna consigliatissima per assaporare i sapori dell'autentica cucina greca. 
+                                    Staff cordiale e gentile.
+                                
+                            </div>
+                            <div class="col-sm-3"><img src="img/mpiftekia_me_patates_sto_fourno_5.jpg" class="img-responsive" /></div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <span class="label label-warning">5</span>
+                            </div>
+                            <div class="col-sm-8">
+                                <h4><a href="#" onclick="gotomap(37.98, 23.75, 'Ταβέρνα Παπαγιάνης', papagiannis);">ΤΑΒΕΡΝΑ - ΕΣΤΙΑΤΟΡΙΟ ΠΑΠΑΓΙΑΝΝΗΣ<br><small>Papadiamantopoulou 53, Zografou</small></a></h4>
+                                
+                                <h5>Marina B. <small>September 13</small></h5>
+                                Best Pastitsio ever in town. I will definitely go to taste their yummies!
                             </div>
                             <div class="col-sm-3"><img src="img/pastitsio.jpg" class="img-responsive" /></div>
                         </div>
                     </div>
-
                 </div>
-
-
                 <div class="panel panel-default">
-
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-9">
@@ -155,14 +174,9 @@
                             </div>
                             <div class="col-sm-3"><img src="img/mpiftekia_me_patates_sto_fourno_5.jpg" class="img-responsive" /></div>
                         </div>
-
                     </div>
-
                 </div>
-
-
                 <div class="panel panel-default">
-
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-9">
@@ -176,7 +190,6 @@
 
 
                 </div>
-
                 <div class="panel panel-default">
 
                     <div class="panel-body">
@@ -191,93 +204,15 @@
                     </div>
 
                 </div>
-
-
-
-               
-
             </div>
             <div class="col-md-7" id="map"></div>
-
         </div>
     </div>
 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBklaHsAOR5Qu1qqjgppMc6I_0s2R6Kx70&callback=initMap"
             async defer></script>
-    <script>
 
-        var infowindow;
-        var marker;
-        var map;
-        var uluru;
-        function initMap() {
-            uluru = { lat: 38, lng: 23.7 };
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: uluru
-            });
-
-            var contentString = '<div id="content">' +
-                '<div id="siteNotice">' +
-                '</div>' +
-                '<h1 id="firstHeading" class="firstHeading">Zepelin</h1>' +
-                '<div id="bodyContent">' +
-                '<div  style="position:relative; float:right;"><img src="img/likavitgos.jpg" width="80%" class="img-responsive" /></div>' +
-                '<p><b>Tsa</b>, mpla mpla mpla mpla</b>, is a large ' +
-                'sandstone rock formation in the southern part of the ' +
-                'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
-                'south west of the nearest large town, Alice Springs; 450&#160;km ' +
-                '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
-                'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
-                'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
-                'Aboriginal people of the area. It has many springs, waterholes, ' +
-                'rock caves and ancient paintings. Uluru is listed as a World ' +
-                'Heritage Site.</p>' +
-                '</div>' +
-                '</div>';
-
-            infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-
-
-
-
-
-
-
-        }
-
-        $("#gotomap").click(function () {
-            uluru = { lat: 38.05, lng: 23.7 };
-
-            if (marker != null) {
-                marker.setMap(null);
-            }
-            marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-                title: 'Uluru (Ayers Rock)'
-            });
-
-            marker.addListener('click', function () {
-                infowindow.open(map, marker);
-
-            });
-
-
-            infowindow.open(map, marker);
-        });
-
-
-
-        $(window).resize(function () {
-            var h = $(window).height();
-            $('#map').css('height', (h));
-        }).resize();
-    </script>
-
+    <script src="js/locations.js"></script>
 </body>
-
 </html>
