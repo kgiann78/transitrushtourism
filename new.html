@@ -45,17 +45,7 @@
     </style>
 
     <script type="text/javascript">
-
         $(document).ready(function () {
-            $("#hidden-div").hide();
-
-            var myVar = setInterval(myTimer, 500);
-
-            function myTimer() {
-                var d = new Date();
-                $("#hidden-div").show();
-            }
-
         });
     </script>
 </head>
@@ -95,34 +85,7 @@
         <div class="row">
 
             <!--Left side-->
-
-
             <div class="col-md-5">
-
-
-                <div id="hidden-div" style="margin-top:10px;" class="panel panel-default">
-
-                    <div class="panel-body">
-                        <div class="row">
-                            <img src="img/NEW.png" class="img-responsive" width="10%" style="float:right;margin-top: -17px;margin-right: -5px; padding:0;" />
-                            <div class="col-sm-9">
-
-                                <a href="#" id="gotomap">Zepelin</a><br />
-
-                                <br />
-                                Marina B. • September 13
-                                Best Pastitsio ever in town
-                                mpla mpla mpla mpla
-
-                            </div>
-                            <div class="col-sm-3" style="position:relative; float:right;"><img src="img/polyspori-turkey.png" class="img-responsive" /></div>
-                            <br />
-
-                        </div>
-                    </div>
-
-                </div>
-
 
                 <div style="margin-top:10px;" class="panel panel-default">
 
@@ -132,8 +95,9 @@
                                 <a href="#" id="gotomap">Αχινός</a><br />59th St to 110th St (5th Ave to Central Park West)
 
                                 <br />
-                                Kostas B. • September 13
-                                This place has some great art works! :-) And the best thing is that its open and free to public!
+                                Marina B. • September 13
+                                Best Pastitsio ever in town
+
 
                             </div>
                             <div class="col-sm-3"><img src="img/pastitsio.jpg" class="img-responsive" /></div>
@@ -147,12 +111,7 @@
 
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-9">
-                                <a href="#">El taco Bueno</a><br />mpla mpla mpla mplampla mpla mpla mpla
-                                <br />
-                                Thomas B. • A beautiful underground gem to soak away your worries for two hours. Eucalyptus steam room. Salt water pool. Bubbly pool. Hot pool. Warm pool. Ice cold pool. Mint tea. Rinse, repeat. Leave in bliss.
-
-                            </div>
+                            <div class="col-sm-9"><a href="#">El taco Bueno</a></div>
                             <div class="col-sm-3"><img src="img/mpiftekia_me_patates_sto_fourno_5.jpg" class="img-responsive" /></div>
                         </div>
 
@@ -165,10 +124,7 @@
 
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-9">
-                                <a href="#">Mexiccana</a><br />btwn Gansevoort & W 34th St (btwn 10th & 12th Ave)<br />
-                                Petros B. • You could spend days in this beautiful museum and not see everything. There is something for everyone here. From paintings to sculptures to costumes, this was one of the best museums I've been to!
-                            </div>
+                            <div class="col-sm-9"><a href="#">El taco Bueno</a></div>
                             <div class="col-sm-3"><img src="img/lekkasNtolmadakia.jpg" class="img-responsive" /></div>
                         </div>
 
@@ -181,10 +137,7 @@
 
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-9">
-                                <a href="#">Indian Restaurant</a><br/>228 W 10th St (btwn Bleecker & Hudson St) <br />
-                                Kostas. • Spaghetti with garlic and chilies is amazing. Also, the roasted potatoes with salsa bianco.
-                            </div>
+                            <div class="col-sm-9"><a href="#">El taco Bueno</a></div>
                             <div class="col-sm-3"><img src="img/papoutsakia.jpg" class="img-responsive" /></div>
                         </div>
 
@@ -194,7 +147,17 @@
 
 
 
-               
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-9"><a href="#">El taco Bueno</a></div>
+                            <div class="col-sm-3"><img src="img/papoutsakia.jpg" class="img-responsive" /></div>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
             <div class="col-md-7" id="map"></div>
@@ -206,25 +169,28 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBklaHsAOR5Qu1qqjgppMc6I_0s2R6Kx70&callback=initMap"
             async defer></script>
     <script>
-
         var infowindow;
         var marker;
         var map;
         var uluru;
         function initMap() {
+
+
+            
+
+
+
             uluru = { lat: 38, lng: 23.7 };
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
                 center: uluru
             });
-
             var contentString = '<div id="content">' +
                 '<div id="siteNotice">' +
                 '</div>' +
-                '<h1 id="firstHeading" class="firstHeading">Zepelin</h1>' +
+                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
                 '<div id="bodyContent">' +
-                '<div  style="position:relative; float:right;"><img src="img/likavitgos.jpg" width="80%" class="img-responsive" /></div>' +
-                '<p><b>Tsa</b>, mpla mpla mpla mpla</b>, is a large ' +
+                '<p><b>Αχινός</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
                 'sandstone rock formation in the southern part of the ' +
                 'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
                 'south west of the nearest large town, Alice Springs; 450&#160;km ' +
@@ -234,24 +200,17 @@
                 'Aboriginal people of the area. It has many springs, waterholes, ' +
                 'rock caves and ancient paintings. Uluru is listed as a World ' +
                 'Heritage Site.</p>' +
+                '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+                'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
+                '(last visited June 22, 2009).</p>' +
                 '</div>' +
                 '</div>';
-
             infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
-
-
-
-
-
-
-
         }
-
         $("#gotomap").click(function () {
             uluru = { lat: 38.05, lng: 23.7 };
-
             if (marker != null) {
                 marker.setMap(null);
             }
@@ -260,18 +219,11 @@
                 map: map,
                 title: 'Uluru (Ayers Rock)'
             });
-
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
-
             });
-
-
             infowindow.open(map, marker);
         });
-
-
-
         $(window).resize(function () {
             var h = $(window).height();
             $('#map').css('height', (h));
